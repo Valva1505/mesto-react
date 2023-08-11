@@ -12,7 +12,7 @@ function App() {
   const [isEditProfilePopupOpen, setEditProfilePopupOpen] = useState(false);
   const [isEditAvatarPopupOpen, setEditAvatarPopupOpen] = useState(false);
   const [isAddPlacePopupOpen, setAddPlacePopupOpen] = useState(false);
-  const [isSelectedCard, setSelectedCard] = useState(false);
+  const [selectedCard, setSelectedCard] = useState(null);
 
 
   const handleEditProfileClick = () => {
@@ -33,7 +33,7 @@ function App() {
     setEditProfilePopupOpen(false);
     setEditAvatarPopupOpen(false);
     setAddPlacePopupOpen(false);
-    setSelectedCard(false)
+    setSelectedCard(null)
   }
 
 
@@ -142,7 +142,7 @@ function App() {
           <span className="link-error popup__input-error"></span>
         </label>
       </PopupWithForm>
-      <ImagePopup card={isSelectedCard} onClose={closeAllPopups} />
+      <ImagePopup card={selectedCard} onClose={closeAllPopups} />
     </div>
 
   );

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { api } from './API';
+import { api } from './utils/API';
 import Card from './Card';
 
 function Main({
