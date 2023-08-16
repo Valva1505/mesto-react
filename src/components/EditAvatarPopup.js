@@ -25,19 +25,6 @@ function EditAvatarPopup({
         >
             <label className="popup__field">
                 <input
-                    type="text"
-                    id="title"
-                    name="name"
-                    className="popup__input popup__input_type_title popup__input_type_error"
-                    placeholder="Название"
-                    minLength="2"
-                    maxLength="30"
-                    required
-                />
-                <span className="title-error popup__input-error"></span>
-            </label>
-            <label className="popup__field">
-                <input
                     ref={avatarRef}
                     type="url"
                     id="link"

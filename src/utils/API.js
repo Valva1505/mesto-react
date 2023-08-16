@@ -27,14 +27,9 @@ class Api {
     return this._request(`${this._url}/cards/${cardId}`, "DELETE")
   };
 
-  putLike(cardId) {
-    return this._request(`${this._url}/cards/${cardId}/likes`, "PUT")
-  };
-
-  deleteLike(cardId) {
-    return this._request(`${this._url}/cards/${cardId}/likes`, "DELETE")
-  };
-
+  selectLike(cardId, isLiked) {
+    return this._request(`${this._url}/cards/${cardId}/likes`, isLiked ? "PUT" : "DELETE");
+  }; // объединила в один - поставить и удалить лайк
 
   _request(url, method, body) {
     return fetch(url, {
