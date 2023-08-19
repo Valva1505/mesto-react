@@ -4,7 +4,7 @@ class Api {
     this._headers = headers;
   }
 
-  getUserInfo() {// добавление данных пользователя
+  getUserInfo() {
     return this._request(`${this._url}/users/me`, "GET");
   }
 
@@ -12,7 +12,7 @@ class Api {
     return this._request(`${this._url}/users/me`, "PATCH", { name: name, about: about });
   }
 
-  getInitialCards() {//добавление карточек вместо массива
+  getInitialCards() {
     return this._request(`${this._url}/cards`, "GET");
   }
   userAvatar({ avatar }) {
@@ -29,7 +29,7 @@ class Api {
 
   selectLike(cardId, isLiked) {
     return this._request(`${this._url}/cards/${cardId}/likes`, isLiked ? "PUT" : "DELETE");
-  }; // объединила в один - поставить и удалить лайк
+  }; 
 
   _request(url, method, body) {
     return fetch(url, {

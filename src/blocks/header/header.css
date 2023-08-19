@@ -1,6 +1,8 @@
 .header {
     border-bottom: 1px solid rgba(54, 54, 54, 0.7);
     margin: 45px auto 38px;
+    display: flex;
+    flex-direction: row;
 }
 
 @media (max-width: 540px) {

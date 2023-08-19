@@ -2,17 +2,14 @@ import PopupWithForm from "./PopupWithForm";
 import React, { useState, useEffect, useContext } from 'react';
 import CurrentUserContext from "../contexts/CurrentUserContext";
 
-
 function EditProfilePopup({
     isOpen,
     onClose,
     onUpdateUser
-
 }) {
     const currentUser = useContext(CurrentUserContext);
     const [name, setName] = useState('');
     const [about, setAbout] = useState('');
-
 
     useEffect(() => {
         if (currentUser && isOpen) {
@@ -21,10 +18,14 @@ function EditProfilePopup({
         }
     }, [currentUser, isOpen]);
 
-    // useEffect(() => {
-    //     setName(currentUser?.name);
-    //     setAbout(currentUser?.about);
-    //   }, [currentUser]) - работает, но выдает ошибку
+    const handleChange = (e) => {
+        const { name, value } = e.target;
+        if (name === 'name') {
+            setName(value);
+        } else if (name === 'about') {
+            setAbout(value);
+        }
+    };
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -45,7 +46,7 @@ function EditProfilePopup({
             <label className="popup__field">
                 <input
                     value={name}
-                    onChange={(e) => setName(e.target.value)}
+                    onChange={handleChange}
                     type="text"
                     id="name"
                     name="name"
@@ -60,7 +61,7 @@ function EditProfilePopup({
             <label className="popup__field">
                 <input
                     value={about}
-                    onChange={(e) => setAbout(e.target.value)}
+                    onChange={handleChange}
                     type="text"
                     id="description"
                     name="about"

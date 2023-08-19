@@ -14,7 +14,7 @@ function AddPlacePopup({
             setName('');
             setLink('');
         }
-    }, [isOpen]); //очистить инпуты после сохранения
+    }, [isOpen]);
     
     function handleSubmit(e) {
         e.preventDefault();
